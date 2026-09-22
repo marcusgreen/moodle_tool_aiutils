@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>{{#str}}localaimanagerheading,tool_aiutils{{/str}}</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">{{#str}}backtochoice,tool_aiutils{{/str}}</a>
+    <br/><br/>
+    <a href="localaimanager.php?action=test" class="btn btn-primary mb-3">{{#str}}sendtestprompt,tool_aiutils{{/str}}</a>
+    <a href="report/ai_action_generate_text.php" class="btn btn-success mb-3">AI Action Generate Text Report</a>
+    <a href="report/ai_manager_request_log.php" class="btn btn-success mb-3">AI Manager Request Log Report</a>
+    <br/><br/>
+    
+    {{#testsubmitted}}
+        <div class="alert alert-info">{{#str}}testpromptsubmitted,tool_aiutils{{/str}}</div>
+        
+        {{#success}}
+            <div class="alert alert-success">{{#str}}connectionsuccessful,tool_aiutils{{/str}}</div>
+            <h4>{{#str}}response,tool_aiutils{{/str}}</h4>
+            <pre>{{{response}}}</pre>
+        {{/success}}
+        
+        {{#error}}
+            <div class="alert alert-danger">{{#str}}error,tool_aiutils{{/str}} {{{error}}}</div>
+            {{#debuginfo}}
+                <h4>{{#str}}debuginfo,tool_aiutils{{/str}}</h4>
+                <pre>{{{debuginfo}}}</pre>
+            {{/debuginfo}}
+        {{/error}}
+        
+        {{#exception}}
+            <div class="alert alert-danger">{{#str}}exception,tool_aiutils{{/str}} {{{exceptionmessage}}}</div>
+            <pre>{{{exceptiontrace}}}</pre>
+        {{/exception}}
+    {{/testsubmitted}}
+</div>

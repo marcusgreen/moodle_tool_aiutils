@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>{{#str}}coreaiheading,tool_aiutils{{/str}}</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">{{#str}}backtochoice,tool_aiutils{{/str}}</a>
+    <br/><br/>
+    <a href="coreai.php?action=test" class="btn btn-primary mb-3">{{#str}}sendtestprompt,tool_aiutils{{/str}}</a>
+    <a href="{{wwwroot}}/admin/settings.php?section=aiprovider" class="btn btn-secondary mb-3">{{#str}}aiproviders,tool_aiutils{{/str}}</a>
+    <a href="diagnose.php" class="btn btn-info mb-3">{{#str}}diagnostics,tool_aiutils{{/str}}</a>
+    <br/><br/>
+    {{#testsubmitted}}
+        <div class="alert alert-info">{{#str}}testpromptsubmitted,tool_aiutils{{/str}}</div>
+        <br/><br/>
+        <p><strong>{{#str}}prompttext,tool_aiutils{{/str}}</strong></p>
+        <pre>{{prompttext}}</pre>
+        {{#success}}
+            <div class="alert alert-success">{{#str}}responsereceived,tool_aiutils{{/str}}</div>
+            <p><strong>{{#str}}responsetext,tool_aiutils{{/str}}</strong></p>
+            <pre>{{responsetext}}</pre>
+        {{/success}}
+        {{#message}}
+            <div class="alert alert-danger">{{{message}}}</div>
+        {{/message}}
+        <br/><br/>
+        <p>{{#str}}messagereturned,tool_aiutils{{/str}}</p>
+        <pre>{{result}}</pre>
+    {{/testsubmitted}}
+</div>
